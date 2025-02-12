@@ -6,17 +6,19 @@
     <title>Un Año y Diez Meses de Amor Eterno - Para mi amada Pamela</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <style>
         :root {
-            --primary-color: #ff6b6b;
-            --secondary-color: #4ecdc4;
-            --text-color: #2c3e50;
-            --bg-color: #f7f7f7;
+            --color-primario: #ff6b6b;
+            --color-secundario: #4ecdc4;
+            --color-texto: #2c3e50;
+            --color-fondo: #f7f7f7;
         }
 
         * {
@@ -27,12 +29,12 @@
 
         body {
             font-family: 'Lato', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
             overflow-x: hidden;
         }
 
-        .section {
+        .seccion {
             padding: 5rem 1rem;
             min-height: 100vh;
             display: flex;
@@ -45,7 +47,7 @@
 
         h1, h2 {
             font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
+            color: var(--color-primario);
             text-align: center;
         }
 
@@ -96,6 +98,12 @@
             height: 300px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .swiper-slide:hover {
+            transform: scale(1.05);
         }
 
         .swiper-slide img {
@@ -125,45 +133,45 @@
             margin-top: 2rem;
         }
 
-        #timeline {
+        #linea-tiempo {
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .timeline-item {
+        .evento-tiempo {
             padding: 10px 40px;
             position: relative;
             background-color: inherit;
             width: 50%;
         }
 
-        .timeline-item::after {
+        .evento-tiempo::after {
             content: '';
             position: absolute;
             width: 25px;
             height: 25px;
             right: -17px;
-            background-color: var(--primary-color);
-            border: 4px solid var(--secondary-color);
+            background-color: var(--color-primario);
+            border: 4px solid var(--color-secundario);
             top: 15px;
             border-radius: 50%;
             z-index: 1;
         }
 
-        .left {
+        .izquierda {
             left: 0;
         }
 
-        .right {
+        .derecha {
             left: 50%;
         }
 
-        .right::after {
+        .derecha::after {
             left: -16px;
         }
 
-        .timeline-content {
+        .contenido-tiempo {
             padding: 20px 30px;
             background-color: white;
             position: relative;
@@ -212,7 +220,7 @@
             border: none;
             border-radius: 5px;
             background-color: rgba(255, 107, 107, 0.1);
-            color: var(--text-color);
+            color: var(--color-texto);
             font-size: 1rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -231,7 +239,7 @@
             padding: 10px 15px;
             border: none;
             border-radius: 50px;
-            background-color: var(--primary-color);
+            background-color: var(--color-primario);
             color: white;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.1s ease;
@@ -239,7 +247,7 @@
         }
 
         .boton-musica:hover {
-            background-color: var(--secondary-color);
+            background-color: var(--color-secundario);
             transform: scale(1.1);
         }
 
@@ -261,7 +269,7 @@
             right: 20px;
             width: 50px;
             height: 50px;
-            background-color: var(--primary-color);
+            background-color: var(--color-primario);
             color: white;
             font-size: 24px;
             display: flex;
@@ -293,7 +301,7 @@
             }
         }
 
-        .floating-hearts {
+        .corazones-flotantes {
             position: fixed;
             top: 0;
             left: 0;
@@ -303,13 +311,13 @@
             z-index: 9998;
         }
 
-        .floating-heart {
+        .corazon-flotante {
             position: absolute;
             font-size: 24px;
-            animation: float 10s infinite;
+            animation: flotar 10s infinite;
         }
 
-        @keyframes float {
+        @keyframes flotar {
             0%, 100% {
                 transform: translateY(0) rotate(0deg);
             }
@@ -348,17 +356,17 @@
                 width: 100%;
             }
 
-            .timeline-item {
+            .evento-tiempo {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
             }
 
-            .timeline-item::after {
+            .evento-tiempo::after {
                 left: 15px;
             }
 
-            .right {
+            .derecha {
                 left: 0%;
             }
 
@@ -370,47 +378,63 @@
     </style>
 </head>
 <body>
-    <div class="floating-hearts"></div>
-    <section id="intro" class="section">
+    <div class="corazones-flotantes"></div>
+    <section id="intro" class="seccion">
         <h1 id="nombre-pamela">Pamela</h1>
         <p id="subtitulo">Un año y diez meses de amor eterno</p>
         <div id="particulas"></div>
     </section>
 
-    <section id="galeria" class="section">
+    <section id="galeria" class="seccion">
         <h2>Nuestros Momentos Especiales</h2>
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="fotos/foto1.jpg" alt="Momento especial 1">
+                    <a href="fotos/foto1.jpg" data-fancybox="galeria">
+                        <img src="fotos/foto1.jpg" alt="Momento especial 1">
+                    </a>
                 </div>
                 <div class="swiper-slide">
-                    <img src="fotos/foto2.jpg" alt="Momento especial 2">
+                    <a href="fotos/foto2.jpg" data-fancybox="galeria">
+                        <img src="fotos/foto2.jpg" alt="Momento especial 2">
+                    </a>
                 </div>
                 <div class="swiper-slide">
-                    <img src="fotos/foto3.jpg" alt="Momento especial 3">
+                    <a href="fotos/foto3.jpg" data-fancybox="galeria">
+                        <img src="fotos/foto3.jpg" alt="Momento especial 3">
+                    </a>
                 </div>
                 <div class="swiper-slide">
-                    <img src="fotos/foto4.jpg" alt="Momento especial 4">
+                    <a href="fotos/foto4.jpg" data-fancybox="galeria">
+                        <img src="fotos/foto4.jpg" alt="Momento especial 4">
+                    </a>
                 </div>
                 <div class="swiper-slide">
-                    <img src="fotos/foto5.jpg" alt="Momento especial 5">
+                    <a href="fotos/foto5.jpg" data-fancybox="galeria">
+                        <img src="fotos/foto5.jpg" alt="Momento especial 5">
+                    </a>
                 </div>
                 <div class="swiper-slide">
-                    <img src="fotos/foto6.jpg" alt="Momento especial 6">
+                    <a href="fotos/foto6.jpg" data-fancybox="galeria">
+                        <img src="fotos/foto6.jpg" alt="Momento especial 6">
+                    </a>
                 </div>
                 <div class="swiper-slide">
-                    <img src="fotos/foto7.jpg" alt="Momento especial 7">
+                    <a href="fotos/foto7.jpg" data-fancybox="galeria">
+                        <img src="fotos/foto7.jpg" alt="Momento especial 7">
+                    </a>
                 </div>
                 <div class="swiper-slide">
-                    <img src="fotos/foto8.jpg" alt="Momento especial 8">
+                    <a href="fotos/foto8.jpg" data-fancybox="galeria">
+                        <img src="fotos/foto8.jpg" alt="Momento especial 8">
+                    </a>
                 </div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
     </section>
 
-    <section id="poema" class="section">
+    <section id="poema" class="seccion">
         <h2>Un Poema para Ti</h2>
         <div id="poema-texto">
             En cada amanecer, pienso en ti<br>
@@ -425,37 +449,37 @@
         </div>
     </section>
 
-    <section id="timeline-section" class="section">
+    <section id="linea-tiempo-seccion" class="seccion">
         <h2>Nuestra Historia de Amor</h2>
-        <div id="timeline">
-            <div class="timeline-item left">
-                <div class="timeline-content">
+        <div id="linea-tiempo">
+            <div class="evento-tiempo izquierda">
+                <div class="contenido-tiempo">
                     <h3>Nuestro Primer Encuentro</h3>
-                    <p>Te acuerdas cuando nos encontramos por primera vez? jajaja cuando dijiste que te acompañara a sacar tu carnet de sanidad. Cuando te sente en mi pierna y tu avergonzada, fue muy hermoso♥</p>
+                    <p>¿Te acuerdas cuando nos encontramos por primera vez? Jajaja cuando dijiste que te acompañara a sacar tu carnet de sanidad. Cuando te senté en mi pierna y tú avergonzada, fue muy hermoso♥</p>
                 </div>
             </div>
-            <div class="timeline-item right">
-                <div class="timeline-content">
+            <div class="evento-tiempo derecha">
+                <div class="contenido-tiempo">
                     <h3>Nuestra Primera Fiesta</h3>
-                    <p>Te acuerdas cuando tuvimos nuestra primera fiesta? ese día todos estaban locos porque pensaban que te había pasado algo.</p>
+                    <p>¿Te acuerdas cuando tuvimos nuestra primera fiesta? Ese día todos estaban locos porque pensaban que te había pasado algo.</p>
                 </div>
             </div>
-            <div class="timeline-item left">
-                <div class="timeline-content">
+            <div class="evento-tiempo izquierda">
+                <div class="contenido-tiempo">
                     <h3>Nuestra Primera Vez</h3>
-                    <p>Recuerdas cuando lo hicimos por primera vez? Cuando mi collar chocaba con tu carita y tu gemias de puro placer; fue espectacular ese día, que hermoso es recordar.</p>
+                    <p>¿Recuerdas cuando lo hicimos por primera vez? Cuando mi collar chocaba con tu carita y tú gemías de puro placer; fue espectacular ese día, que hermoso es recordar.</p>
                 </div>
             </div>
-            <div class="timeline-item right">
-                <div class="timeline-content">
+            <div class="evento-tiempo derecha">
+                <div class="contenido-tiempo">
                     <h3>Nuestro Aniversario</h3>
-                    <p>Sé que falta poco para poder cumplir 2 años, lleno de muchas cosas tantas buenas y malas, no cabe duda que a tu lado me quiero quedar pero que hay muchas trabajas, pruebas pero demostraré que quiero un mundo sin fin a tu lado. Te amo ♥</p>
+                    <p>Sé que falta poco para poder cumplir 2 años, lleno de muchas cosas tantas buenas y malas, no cabe duda que a tu lado me quiero quedar pero que hay muchas trabas, pruebas pero demostraré que quiero un mundo sin fin a tu lado. Te amo ♥</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="carta-section" class="section">
+    <section id="carta-seccion" class="seccion">
         <h2>Carta de Amor</h2>
         <div id="carta-amor">
             Mi querida Pamela,<br><br>
@@ -515,13 +539,13 @@
             // Animaciones al scroll
             gsap.registerPlugin(ScrollTrigger);
             
-            gsap.utils.toArray('.section').forEach(section => {
-                gsap.from(section, {
+            gsap.utils.toArray('.seccion').forEach(seccion => {
+                gsap.from(seccion, {
                     opacity: 0,
                     y: 30,
                     duration: 1,
                     scrollTrigger: {
-                        trigger: section,
+                        trigger: seccion,
                         start: "top 80%",
                         once: true
                     }
@@ -546,8 +570,13 @@
                 },
             });
 
+            // Inicialización de Fancybox para la galería
+            Fancybox.bind("[data-fancybox]", {
+                // Opciones personalizadas aquí
+            });
+
             // Reproductor de música mejorado
-            let audioPlayer;
+            let reproductorAudio;
             const botonReproducirPausar = document.getElementById('reproducir-pausar');
             const botonDetener = document.getElementById('detener');
             const listaCanciones = document.getElementById('lista-canciones');
@@ -558,10 +587,10 @@
             const cerrarReproductor = document.getElementById('cerrar-reproductor');
 
             function inicializarAudio() {
-                if (audioPlayer) {
-                    audioPlayer.unload();
+                if (reproductorAudio) {
+                    reproductorAudio.unload();
                 }
-                audioPlayer = new Howl({
+                reproductorAudio = new Howl({
                     src: [listaCanciones.value],
                     loop: false,
                     onend: function() {
@@ -573,23 +602,23 @@
             inicializarAudio();
 
             botonReproducirPausar.addEventListener('click', () => {
-                if (!audioPlayer.playing()) {
-                    audioPlayer.play();
+                if (!reproductorAudio.playing()) {
+                    reproductorAudio.play();
                     botonReproducirPausar.textContent = "⏸️ Pausar";
                 } else {
-                    audioPlayer.pause();
+                    reproductorAudio.pause();
                     botonReproducirPausar.textContent = "▶️ Reproducir";
                 }
             });
 
             botonDetener.addEventListener('click', () => {
-                audioPlayer.stop();
+                reproductorAudio.stop();
                 botonReproducirPausar.textContent = "▶️ Reproducir";
             });
 
             listaCanciones.addEventListener('change', () => {
                 inicializarAudio();
-                audioPlayer.play();
+                reproductorAudio.play();
                 botonReproducirPausar.textContent = "⏸️ Pausar";
             });
 
@@ -599,17 +628,17 @@
                 const alto = visualizador.height;
                 ctx.clearRect(0, 0, ancho, alto);
 
-                if (audioPlayer && audioPlayer.playing()) {
+                if (reproductorAudio && reproductorAudio.playing()) {
                     const datos = new Uint8Array(ancho);
-                    const analyser = Howler.ctx.createAnalyser();
-                    Howler.masterGain.connect(analyser);
-                    analyser.getByteFrequencyData(datos);
+                    const analizador = Howler.ctx.createAnalyser();
+                    Howler.masterGain.connect(analizador);
+                    analizador.getByteFrequencyData(datos);
 
                     ctx.fillStyle = 'rgba(255, 107, 107, 0.5)';
                     for (let i = 0; i < datos.length; i++) {
                         const barraAlto = datos[i] / 255 * alto;
-                        const hue = i / datos.length * 360;
-                        ctx.fillStyle = `hsla(${hue}, 100%, 50%, 0.5)`;
+                        const tono = i / datos.length * 360;
+                        ctx.fillStyle = `hsla(${tono}, 100%, 50%, 0.5)`;
                         ctx.fillRect(i, alto - barraAlto, 1, barraAlto);
                     }
                 } else {
@@ -678,11 +707,11 @@
             function crearCorazonFlotante() {
                 const corazon = document.createElement('div');
                 corazon.innerHTML = '❤️';
-                corazon.classList.add('floating-heart');
+                corazon.classList.add('corazon-flotante');
                 corazon.style.left = Math.random() * 100 + 'vw';
                 corazon.style.top = Math.random() * 100 + 'vh';
                 corazon.style.animationDelay = Math.random() * 10 + 's';
-                document.querySelector('.floating-hearts').appendChild(corazon);
+                document.querySelector('.corazones-flotantes').appendChild(corazon);
             }
 
             for (let i = 0; i < 20; i++) {
